@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotating Cube</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Cube Container */
+        .cube-container {
+            perspective: 1000px;
+            width: 200px;
+            height: 200px;
+            margin: 50px auto;
+        }
+
+        /* Cube */
+        .cube {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            animation: rotateCube 5s infinite linear;
+        }
+
+        /* Cube Faces */
+        .cube-face {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(0, 123, 255, 0.8);
+            border: 2px solid #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .cube-face:nth-child(1) { transform: translateZ(100px); }
+        .cube-face:nth-child(2) { transform: rotateY(90deg) translateZ(100px); }
+        .cube-face:nth-child(3) { transform: rotateY(180deg) translateZ(100px); }
+        .cube-face:nth-child(4) { transform: rotateY(-90deg) translateZ(100px); }
+        .cube-face:nth-child(5) { transform: rotateX(90deg) translateZ(100px); }
+        .cube-face:nth-child(6) { transform: rotateX(-90deg) translateZ(100px); }
+
+        /* Animation */
+        @keyframes rotateCube {
+            from {
+                transform: rotateY(0deg);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">Rotating Cube</h1>
+        <div class="cube-container">
+            <div class="cube">
+                <div class="cube-face">Front</div>
+                <div class="cube-face">Right</div>
+                <div class="cube-face">Back</div>
+                <div class="cube-face">Left</div>
+                <div class="cube-face">Top</div>
+                <div class="cube-face">Bottom</div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS (Optional, for future interactivity) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
